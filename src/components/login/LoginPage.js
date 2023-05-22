@@ -2,7 +2,7 @@ import React from 'react'
 import './login.css'
 
 import { login } from '../../redux/UserActions'
-import { useUserDispatch, useUserSelector } from '../../index';
+import { useUserDispatch } from '../../index';
 import { Link, useNavigate } from "react-router-dom";
 
 

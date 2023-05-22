@@ -111,7 +111,6 @@ export const getUser = (payload, dispatch) => {
 
 
 export const deleteUser = (payload, dispatch, endPoint) => {
-    console.log("hi");
 
     axios.delete(`https://gorest.co.in/public/v2/users/${payload.id}`,
         {
@@ -158,7 +157,6 @@ export const updateUser = (payload, dispatch) => {
 
 
             localStorage.setItem('user', JSON.stringify(res.data));
-            console.log(res.data)
             dispatch(successUpdate(res.data));
             Swal.fire({
                 icon: 'success',

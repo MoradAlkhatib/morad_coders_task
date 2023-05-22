@@ -10,17 +10,10 @@ export default function HomePage() {
   const userData = JSON.parse(localStorage.getItem('user'))
   const dispatch = useUserDispatch();
   const endPoint = useNavigate();
-  console.log(user)
+  
 
-  const [userInfo, setUserInfo] = useState({
-    id: user ? userData.id : user.id,
-    name: user ? userData.name : user.name,
-    email: user ? userData.email : user.email,
-    gender: user ? userData.gender : user.gender,
-    status: user ? userData.status : user.status,
-  });
 
-  const [editedUserInfo, setEditedUserInfo] = useState({ ...userInfo });
+  const [editedUserInfo, setEditedUserInfo] = useState({ ...user });
 
   const handleLogoutClick = () => {
     localStorage.removeItem('userData');
@@ -34,13 +27,12 @@ export default function HomePage() {
   };
 
   const handleSaveClick = () => {
-    // setUserInfo(editedUserInfo);
     updateUser(editedUserInfo, dispatch);
     setIsEditMode(false);
   };
 
   const handleDeleteClick = () => {
-    deleteUser({ id: userInfo.id }, dispatch, endPoint)
+    deleteUser({ id: user.id }, dispatch, endPoint)
   };
 
   const handleInputChange = (e) => {
@@ -51,10 +43,10 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    // console.log(user)
     getUser(userData.id ,dispatch)
 
   }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
     , [user])
 
 

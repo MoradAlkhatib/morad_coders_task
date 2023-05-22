@@ -1,7 +1,7 @@
 import React from 'react'
 import './signUp.css'
 import { signup } from '../../redux/UserActions';
-import { useUserDispatch, useUserSelector } from '../../index';
+import { useUserDispatch } from '../../index';
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -16,7 +16,6 @@ export default function SignUpPage() {
     const email = e.target.email.value;
     const gender = e.target.gender.value
     const status = 'active';
-    console.log(name, gender, email);
     signup({ name, email, gender, status }, dispatch, endPoint)
   };
 
